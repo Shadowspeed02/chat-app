@@ -1,0 +1,36 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Full-stack chat application with React frontend and Node.js backend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev:simple": "start npm run server && start npm run client",
+    "dev:server": "npm run server",
+    "dev:client": "npm run client",
+    "server": "cd server && npm run server",
+    "client": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "start": "cd server && npm start",
+    "lint": "cd client && npm run lint",
+    "preview": "cd client && npm run preview"
+  },
+  "keywords": [
+    "chat",
+    "react",
+    "nodejs",
+    "socket.io",
+    "mongodb",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
