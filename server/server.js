@@ -52,9 +52,7 @@ app.use("/api/messages", messageRouter);
 // connect to mongodb
 await connectDB();
 
-if(process.env.NODE_ENV !== "production"){
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, ()=> console.log("Serveris running on Port:" + PORT));
-}
+server.listen(PORT, ()=> console.log("Server is running on Port:" + PORT));
 
 export default server;

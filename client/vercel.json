@@ -1,8 +1,7 @@
-  {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
-    ]
+{
+  "build": {
+    "env": {
+      "NPM_CONFIG_OPTIONAL": "false"
+    }
   }
+}
