@@ -2,31 +2,26 @@ services:
   - type: web
     name: chat-app-backend
     env: node
-    buildCommand: npm install && cd client && rm -rf node_modules && npm install && npm run build && cd ../server && npm install
-    startCommand: cd server && npm start
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
     envVars:
       - key: PORT
-        value: 10000
-      - key: NODE_ENV
-        value: production
+        value: 5000
       - key: MONGODB_URI
-        sync: false
+        value: mongodb+srv://rishabhmavi:rishabhmavi123@cluster0.hnjphl3.mongodb.net
       - key: JWT_SECRET
-        sync: false
-      - key: JWT_EXPIRE
-        value: 7d
-      - key: JWT_COOKIE_EXPIRE
-        value: 7
+        value: gs#secret
       - key: CLOUDINARY_CLOUD_NAME
-        sync: false
+        value: dtufb2qe4
       - key: CLOUDINARY_API_KEY
-        sync: false
+        value: "372745721515616"
       - key: CLOUDINARY_API_SECRET
-        sync: false
-      - key: CORS_ORIGIN
-        sync: false
-      - key: SOCKET_CORS_ORIGIN
-        sync: false
-      - key: BCRYPT_ROUNDS
-        value: "12"
-    staticPublishPath: ./client/dist
+        value: wwOzIXeIm-HICoxMVvCOBFnDpdk
+
+  - type: static
+    name: chat-app-frontend
+    buildCommand: cd client && npm install && npm run build
+    publishDir: client/dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://chat-app-backend.onrender.com
